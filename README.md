@@ -72,7 +72,7 @@ co-occurrence rather than progression and is drawn dashed throughout.
 ## Repository structure
 
 ```
-TKB-infrastructure/
+claid-infrastructure/
 │
 ├── 1_features/
 │   ├── feature_extraction_rf.py      
@@ -99,6 +99,9 @@ TKB-infrastructure/
 │   ├── ukbb_trait_icd10_mapping.csv       # Curated ICD-10-to-UKBB trait
 │   ├── CCSR_PASC_ICD.csv                  # CCSR-to-ICD-10-CM crosswalk
 │   └── genetic_validation_check.csv       # UKBB-matched validation set
+│
+├── docs/
+│   └──index.html                         # Interactive explorer (standalone)
 │
 └── README.md
 ```
@@ -192,8 +195,7 @@ to be regenerated for replication.
 
 ```bibtex
 @article{tian2026tkb,
-  title   = {A biologically calibrated temporal reference map of
-             disease progression},
+  title   = {A calibrated temporal reference map of disease progression},
   author  = {Tian, Jiazi and others},
   journal = {},
   year    = {2026}
