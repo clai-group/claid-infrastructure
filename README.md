@@ -41,7 +41,7 @@ real signal rather than administrative co-occurrence.
 With *Osteoarthritis* still selected, switch the genetic layer to
 **Supported**. The calibration trace asks whether higher model
 confidence tracks higher genetic support ($r_g$); across the corpus it
-rises monotonically, showing the model recovers biology it was never
+is concentrated in the highest confidence strata and depleted in the lowest, showing the model recovers biology it was never
 shown — the interactive counterpart to Figure 1.
 
 **3 · Topological bridges**
@@ -86,8 +86,8 @@ claid-infrastructure/
 │
 ├── 3_genetic_validation/
 │   ├── map_corrs_phenx_icd_ukbb.py
-│   └──  genetic_enrichment.py           
-
+│   └── genetic_enrichment.py           
+│
 ├── 4_discovery/
 │   └── extract_mechanistic_discoveries_fullcorpus.py
 │
@@ -146,7 +146,7 @@ human-annotated development set (`validation_dataset.csv`) and the
 10,000 silver-standard labels (`labels_10k.csv`) are deposited directly
 and do not need to be regenerated for replication.
 
-### Level 3 — Retrain classifiers from features
+### Level 2 — Retrain classifiers from features
 
 Requires `features_rf_10k.csv`, `features_gnn_10k.csv`, and
 `features_rf_validation.csv`, available on request subject to MGB
@@ -154,10 +154,10 @@ data use agreement.
 
 ```bash
 # RF (R)
-Rscript 3_classifiers/rf/rf_mlho.R
+Rscript 2_classifiers/rf/rf_mlho.R
 
 # GNN (Python)
-python 3_classifiers/gnn/gnn_train.py   # train
+python 2_classifiers/gnn/gnn_train.py   # train
 ```
 
 ### Level 3 — Re-extract features from corrs.csv
@@ -170,7 +170,7 @@ python 1_features/feature_extraction_rf.py
 python 1_features/feature_extraction_gnn.py
 ```
 
-Note: the MedGemma labeling step (Step 2) requires a locally deployed
+Note: the MedGemma labeling step requires a locally deployed
 MedGemma-7B instance. The 200-row human-annotated development set and
 the 10,000 silver-standard labels are deposited directly and do not need
 to be regenerated for replication.
